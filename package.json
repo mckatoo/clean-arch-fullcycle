@@ -1,0 +1,23 @@
+{
+  "name": "ikatoo-backend",
+  "author": {
+    "name": "Milton Carlos Katoo",
+    "email": "mckatoo@gmail.com",
+    "url": "https://www.linkedin.com/in/mckatoo/"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "@swc/core": "1.2.203",
+    "@swc/jest": "0.2.21",
+    "@types/jest": "28.1.2",
+    "@types/node": "18.0.0",
+    "jest": "28.1.1",
+    "ts-node": "10.8.1",
+    "typescript": "4.7.3"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
