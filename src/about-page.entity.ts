@@ -1,25 +1,76 @@
-import { BaseEntity } from "./base.entity"
+type SkillProps = {
+  name: string;
+  levelPercent: number;
+};
 
-export class AboutPage extends BaseEntity {
-  skills?: string[] = []
-  title: string = ''
-  description: string = ''
-  image?: {
-    src: string
-    alt: string
+type ImageProps = {
+  src: string;
+  alt: string;
+};
+
+export type AboutPageProps = {
+  skills?: SkillProps[];
+  title: string;
+  description: string;
+  image?: ImageProps;
+};
+
+export class AboutPage {
+  props: Required<AboutPageProps>;
+
+  constructor(props: AboutPageProps) {
+    this.props = {
+      ...props,
+      skills: props.skills || [],
+      image: props.image || { src: "", alt: "" },
+    };
   }
 
-  constructor (aboutPage?: AboutPage) {
-    super({})
+  updateSkills(skills: SkillProps[]) {
+    this.props.skills = skills;
+  }
 
-    if (aboutPage) {
-      const { id, skills, title, description, image } = aboutPage
+  updateTitle(title: string) {
+    this.props.title = title;
+  }
 
-      if (id !== undefined) this.id = id
-      this.skills = skills || []
-      this.title = title
-      this.description = description
-      this.image = image
-    }
+  updateDescription(description: string) {
+    this.props.description = description;
+  }
+
+  updateImage(image: ImageProps) {
+    this.props.image = image;
+  }
+
+  get title(): string {
+    return this.props.title;
+  }
+
+  private set title(title: string) {
+    this.props.title = title;
+  }
+
+  get description(): string {
+    return this.props.description;
+  }
+  
+  private set description(description: string) {
+    this.props.description = description;
+  }
+
+  get skills(): SkillProps[] {
+    return this.props.skills;
+  }
+  
+  private set skills(skills: SkillProps[]) {
+    this.props.skills = skills;
+  }
+
+  get image(): ImageProps {
+    return this.props.image;
+  }
+  
+  private set image(image: ImageProps) {
+    this.props.image = image;
   }
 }

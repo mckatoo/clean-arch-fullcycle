@@ -1,56 +1,118 @@
-import { AboutPage } from "./about-page.entity";
+import { AboutPage, AboutPageProps } from "./about-page.entity";
 
-describe('Test About Page Test', () => {
+describe("Test About Page Test", () => {
+  it("constructor", () => {
+    let aboutPageData: AboutPageProps = {
+      title: "title",
+      description: "description",
+    };
+    let aboutPage = new AboutPage(aboutPageData);
+    expect(aboutPage.props).toStrictEqual({
+      ...aboutPageData,
+      skills: [],
+      image: { src: "", alt: "" },
+    });
 
-  it('constructor', () => {
-    const aboutPageData: AboutPage = {
-      id: '1',
-      skills: ['skill1', 'skill2'],
-      title: 'title',
-      description: 'description',
-      image: {
-        src: 'src',
-        alt: 'alt'
-      }
-    }
-
-    const aboutPage = new AboutPage(aboutPageData)
-
-    expect(aboutPage).toEqual(aboutPageData)
+    aboutPageData = {
+      ...aboutPageData,
+      skills: [
+        { name: "skill1", levelPercent: 60 },
+        { name: "skill2", levelPercent: 40 },
+      ],
+      image: { src: "src test", alt: "alt test" },
+    };
+    aboutPage = new AboutPage(aboutPageData);
+    expect(aboutPage.props).toStrictEqual(aboutPageData);
   });
 
-  it('constructor without id', () => {
-    const aboutPageData: AboutPage = {
-      skills: ['skill1', 'skill2'],
-      title: 'title',
-      description: 'description',
-      image: {
-        src: 'src',
-        alt: 'alt'
-      }
-    }
+  it("should update title method", () => {
+    const aboutPageData: AboutPageProps = {
+      title: "title",
+      description: "description",
+    };
+    const aboutPage = new AboutPage(aboutPageData);
+    aboutPage.updateTitle("new title");
 
-    const aboutPage = new AboutPage(aboutPageData)
+    expect(aboutPage.title).toBe("new title");
+  });
 
-    expect(aboutPage.id).toBeDefined()
-  })
+  it("should update skills method", () => {
+    const aboutPageData: AboutPageProps = {
+      title: "title",
+      description: "description",
+    };
+    const aboutPage = new AboutPage(aboutPageData);
+    const skills = [{ name: "skill test", levelPercent: 30 }];
+    aboutPage.updateSkills(skills);
+    
+    expect(aboutPage.skills).toHaveLength(1)
+    expect(aboutPage.skills).toStrictEqual(skills);
+  });
 
-  it('constructor without skills', () => {
-    const aboutPageData: AboutPage = {
-      id: '1',
-      title: 'title',
-      description: 'description',
-      image: {
-        src: 'src',
-        alt: 'alt'
-      }
-    }
+  it("should update image method", () => {
+    const aboutPageData: AboutPageProps = {
+      title: "title",
+      description: "description",
+    };
+    const aboutPage = new AboutPage(aboutPageData);
+    const image = { src: "src update test", alt: "alt update test" };
+    aboutPage.updateImage(image);
 
-    const aboutPage = new AboutPage(aboutPageData)
+    expect(aboutPage.image).toStrictEqual(image);
+  });
 
-    expect(aboutPage.skills).toEqual([])
-  })
-  
+  it("should update description method", () => {
+    const aboutPageData: AboutPageProps = {
+      title: "title",
+      description: "description",
+    };
+    const aboutPage = new AboutPage(aboutPageData);
+    aboutPage.updateDescription("new description");
+
+    expect(aboutPage.description).toBe("new description");
+  });
+
+  // it("constructor without id", () => {
+  //   const aboutPageData: AboutPageProps = {
+  //     skills: [
+  //       {
+  //         name: "skill1",
+  //         levelPercent: 60,
+  //       },
+  //       {
+  //         name: "skill2",
+  //         levelPercent: 40,
+  //       },
+  //     ],
+  //     title: "title",
+  //     description: "description",
+  //     image: {
+  //       src: "src",
+  //       alt: "alt",
+  //     },
+  //   };
+
+  //   const aboutPage = new AboutPage(aboutPageData);
+
+  //   expect(aboutPage.id).toBeDefined();
+  // });
+
+  // it("constructor without skills", () => {
+  //   const aboutPageData: AboutPageProps = {
+  //     id: "1",
+  //     title: "title",
+  //     description: "description",
+  //     image: {
+  //       src: "src",
+  //       alt: "alt",
+  //     },
+  //   };
+
+  //   const aboutPage = new AboutPage(aboutPageData);
+
+  //   expect(aboutPage.skills).toEqual([]);
+  // });
+
   // let aboutPageRepository: AboutPageRepository
 
   // beforeEach(() => {
@@ -129,4 +191,4 @@ describe('Test About Page Test', () => {
   //   expect(aboutPageUpdated).toHaveProperty('title', 'Title test updated')
   //   expect(aboutPageUpdated).toHaveProperty('description', 'Describe test updated')
   // })
-})
+});
