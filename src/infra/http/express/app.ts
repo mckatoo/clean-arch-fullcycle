@@ -20,6 +20,23 @@ app.get("/", (_req: Request, res: Response) => {
   res.status(200).send("OK");
 });
 
+app.post("/menu", (req: Request, res: Response) => { 
+const links = [
+  { label: "Sobre", to: "about" },
+  { label: "Habilidades", to: "skills" },
+  { label: "Projetos", to: "projects" },
+  { label: "Contatos", to: "contact" }
+]
+
+const social = {
+  linkedin: "mckatoo",
+  github: "mckatoo",
+  youtube: "UCc1e1mclC9o5OnQU87PcU1g",
+}
+  
+  res.json({ links, social })
+})
+
 // Error Handling
 app.use((error: any, req: Request, res: Response, _: NextFunction) => {
   const httpCode = error.statusCode || error?.response?.status || 500;

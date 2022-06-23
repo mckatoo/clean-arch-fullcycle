@@ -9,3 +9,7 @@ Content-Type: application/json
   "title": "About test",
   "description": "About test description"
 }
+
+###
+POST http://localhost:8000/menu/
+Content-Type: application/json
