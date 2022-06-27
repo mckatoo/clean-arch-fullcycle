@@ -1,43 +1,10 @@
 import express, { NextFunction, Request, Response } from "express";
-
-import { CreateAboutPageUseCase } from "../../../application/create-about-page.use-case";
-import { AboutPageMemoryRepository } from "../../db/about-page-memory.repository";
+import routes from "./routes";
 
 const app = express();
 app.use(express.json());
 
-const aboutPageRepository = new AboutPageMemoryRepository();
-
-app.post("/about", async (req: Request, res: Response) => {
-  const createUseCase = new CreateAboutPageUseCase(aboutPageRepository);
-  const output = await createUseCase.execute(req.body);
-
-  res.status(201).json(output);
-});
-
-app.post("/menu", (req: Request, res: Response) => { 
-  const {menu} = req.body
-  const publicLinks = [
-    { label: "Sobre", to: "about" },
-    { label: "Habilidades", to: "skills" },
-    { label: "Projetos", to: "projects" },
-    { label: "Contatos", to: "contact" },
-  ]
-
-  const adminLinks = [
-    { label: "Dashboard", to: "admin" },
-  ]
-
-  const social = {
-    linkedin: "mckatoo",
-    github: "mckatoo",
-    youtube: "UCc1e1mclC9o5OnQU87PcU1g",
-  }
-
-  const links = (menu === 'public') ? publicLinks : adminLinks
-  
-  res.json({social, links})
-})
+app.use(routes)
 
 // Status
 app.get("/", (_req: Request, res: Response) => {
