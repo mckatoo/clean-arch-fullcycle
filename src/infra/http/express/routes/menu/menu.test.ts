@@ -4,10 +4,10 @@ import app from "../../app";
 describe('Menu', () => {
   it('should get public menu', async () => {
     const publicLinks = [
-      { label: "Sobre", to: "about" },
-      { label: "Habilidades", to: "skills" },
-      { label: "Projetos", to: "projects" },
-      { label: "Contatos", to: "contact" },
+      { label: "Sobre", to: "app/about" },
+      { label: "Habilidades", to: "app/skills" },
+      { label: "Projetos", to: "app/projects" },
+      { label: "Contatos", to: "app/contact" },
     ]
     const response = await request(app).post("/menu").send({
       menu: 'public'

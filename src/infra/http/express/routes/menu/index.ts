@@ -2,13 +2,13 @@ import { Router, Request, Response } from "express"
 
 const menu = Router();
 
-menu.post("/menu", (req: Request, res: Response) => { 
-  const {menu} = req.body
+menu.post("/menu", (req: Request, res: Response) => {
+  const { menu } = req.body
   const publicLinks = [
-    { label: "Sobre", to: "about" },
-    { label: "Habilidades", to: "skills" },
-    { label: "Projetos", to: "projects" },
-    { label: "Contatos", to: "contact" },
+    { label: "Sobre", to: "app/about" },
+    { label: "Habilidades", to: "app/skills" },
+    { label: "Projetos", to: "app/projects" },
+    { label: "Contatos", to: "app/contact" },
   ]
 
   const adminLinks = [
@@ -22,8 +22,8 @@ menu.post("/menu", (req: Request, res: Response) => {
   }
 
   const links = (menu === 'public') ? publicLinks : adminLinks
-  
-  res.json({social, links})
+
+  res.json({ social, links })
 })
 
 export default menu
