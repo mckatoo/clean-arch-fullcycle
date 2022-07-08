@@ -1,4 +1,4 @@
-import { AboutPage, AboutPageProps } from "../../domain/about-page.entity";
+import { AboutPage, AboutPageProps } from "../../../domain/about/about-page.entity";
 import { AboutPageMemoryRepository } from "./about-page-memory.repository";
 
 describe("AboutPageMemory Repository", () => {

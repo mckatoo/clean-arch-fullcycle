@@ -1,5 +1,5 @@
-import { AboutPage } from "../../domain/about-page.entity";
-import { AboutPageRepositoryInterface } from "../../domain/about-page.repository";
+import { AboutPage } from "../../domain/about/about-page.entity";
+import { AboutPageRepositoryInterface } from "../../domain/about/about-page.repository";
 
 export class AboutPageMemoryRepository implements AboutPageRepositoryInterface {
   items: AboutPage[] = [];

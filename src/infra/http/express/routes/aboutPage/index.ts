@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { CreateAboutPageUseCase } from '../../../../../application/create-about-page.use-case';
-import { AboutPageMemoryRepository } from '../../../../db/about-page-memory.repository';
+import { AboutPageMemoryRepository } from '../../../../db/about/about-page-memory.repository';
 import { Request, Response } from "express";
 
 const aboutPageRoute = Router()
