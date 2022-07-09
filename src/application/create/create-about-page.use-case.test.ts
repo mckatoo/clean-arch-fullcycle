@@ -1,4 +1,4 @@
-import { AboutPageMemoryRepository } from "../infra/db/about/about-page-memory.repository";
+import { AboutPageMemoryRepository } from "../../infra/db/about/about-page-memory.repository";
 import { CreateAboutPageUseCase } from "./create-about-page.use-case";
 
 describe("Create About Page use-case Test", () => {
