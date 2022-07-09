@@ -9,6 +9,7 @@ type CreateAboutPageInput = {
 };
 
 type CreateAboutPageOutput = {
+  id: string;
   title: string;
   description: string;
   skills: SkillProps[];

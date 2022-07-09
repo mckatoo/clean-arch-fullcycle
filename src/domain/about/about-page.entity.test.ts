@@ -1,7 +1,16 @@
+import { randomUUID } from "crypto";
 import { AboutPage, AboutPageProps } from "./about-page.entity";
+// import { AboutPageRepositoryInterface } from "./about-page.repository";
 
 describe("Test About Page Test", () => {
-  it("constructor", () => {
+
+  // let aboutPageRepository: AboutPageRepositoryInterface
+
+  // beforeEach(() => {
+  //   aboutPageRepository = new AboutPageRepository()
+  // })
+
+  it("constructor without id", () => {
     let aboutPageData: AboutPageProps = {
       title: "title",
       description: "description",
@@ -23,6 +32,19 @@ describe("Test About Page Test", () => {
     };
     aboutPage = new AboutPage(aboutPageData);
     expect(aboutPage.props).toStrictEqual(aboutPageData);
+
+    expect(aboutPage.id).toBeDefined()
+  });
+
+  it('should constructor with id', () => {
+    const aboutPageData: AboutPageProps = {
+      title: "title",
+      description: "description",
+    };
+    const id = randomUUID()
+    const aboutPage = new AboutPage(aboutPageData, id)
+
+    expect(aboutPage.id).toBe(id)
   });
 
   it("should update title method", () => {
@@ -72,31 +94,6 @@ describe("Test About Page Test", () => {
     expect(aboutPage.description).toBe("new description");
   });
 
-  // it("constructor without id", () => {
-  //   const aboutPageData: AboutPageProps = {
-  //     skills: [
-  //       {
-  //         name: "skill1",
-  //         levelPercent: 60,
-  //       },
-  //       {
-  //         name: "skill2",
-  //         levelPercent: 40,
-  //       },
-  //     ],
-  //     title: "title",
-  //     description: "description",
-  //     image: {
-  //       src: "src",
-  //       alt: "alt",
-  //     },
-  //   };
-
-  //   const aboutPage = new AboutPage(aboutPageData);
-
-  //   expect(aboutPage.id).toBeDefined();
-  // });
-
   // it("constructor without skills", () => {
   //   const aboutPageData: AboutPageProps = {
   //     id: "1",
@@ -112,12 +109,6 @@ describe("Test About Page Test", () => {
 
   //   expect(aboutPage.skills).toEqual([]);
   // });
-
-  // let aboutPageRepository: AboutPageRepository
-
-  // beforeEach(() => {
-  //   aboutPageRepository = new AboutPageRepository()
-  // })
 
   // it('Should show default data on about_page table', async () => {
   //   const aboutPage = await aboutPageRepository.getAboutPage()

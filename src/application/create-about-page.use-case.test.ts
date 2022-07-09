@@ -13,6 +13,7 @@ describe("Create About Page use-case Test", () => {
 
     const output = await createUseCase.execute(data);
     expect(output).toStrictEqual({
+      id: repository.items[0].id,
       ...data,
       image: {
         src: "",

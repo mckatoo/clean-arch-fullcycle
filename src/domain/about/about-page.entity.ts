@@ -1,3 +1,5 @@
+import { randomUUID } from "crypto";
+
 export type SkillProps = {
   name: string;
   levelPercent: number;
@@ -16,9 +18,11 @@ export type AboutPageProps = {
 };
 
 export class AboutPage {
+  readonly id: string
   props: Required<AboutPageProps>;
 
-  constructor(props: AboutPageProps) {
+  constructor(props: AboutPageProps, id?: string) {
+    this.id = id || randomUUID()
     this.props = {
       ...props,
       skills: props.skills || [],
@@ -75,6 +79,9 @@ export class AboutPage {
   }
 
   toJson() {
-    return this.props;
+    return {
+      id: this.id,
+      ...this.props,
+    }
   }
 }
