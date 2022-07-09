@@ -15,4 +15,19 @@ describe("AboutPageMemory Repository", () => {
     expect(repository.items).toHaveLength(1);
     expect(repository.items).toStrictEqual([aboutPage]);
   });
+
+  it('should get the about page data', async () => {
+    const repository = new AboutPageMemoryRepository();
+    const aboutPageData: AboutPageProps = {
+      title: "get title",
+      description: "get description",
+    };
+    const aboutPage = new AboutPage(aboutPageData);
+
+    await repository.insert(aboutPage);
+    const newAboutPage = await repository.get()
+
+    expect(repository.items).toHaveLength(1);
+    expect(repository.items).toStrictEqual([newAboutPage]);
+  });
 });
