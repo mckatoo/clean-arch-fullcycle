@@ -20,7 +20,7 @@ export class CreateAboutPageUseCase {
   constructor(private aboutPageRepository: AboutPageRepositoryInterface) {}
 
   async execute(input: CreateAboutPageInput): Promise<CreateAboutPageOutput> {
-    const aboutPage = new AboutPage(input);
+    const aboutPage = AboutPage.create(input);
     await this.aboutPageRepository.insert(aboutPage);
 
     return aboutPage.toJson();

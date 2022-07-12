@@ -8,7 +8,7 @@ describe("AboutPageMemory Repository", () => {
       title: "title",
       description: "description",
     };
-    const aboutPage = new AboutPage(aboutPageData);
+    const aboutPage = AboutPage.create(aboutPageData);
     expect(repository.items).toHaveLength(0);
 
     await repository.insert(aboutPage);
@@ -22,7 +22,7 @@ describe("AboutPageMemory Repository", () => {
       title: "get title",
       description: "get description",
     };
-    const aboutPage = new AboutPage(aboutPageData);
+    const aboutPage = AboutPage.create(aboutPageData);
 
     await repository.insert(aboutPage);
     const newAboutPage = await repository.get()

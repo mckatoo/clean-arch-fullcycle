@@ -7,7 +7,7 @@ describe("Test About Page Test", () => {
   // let aboutPageRepository: AboutPageRepositoryInterface
 
   // beforeEach(() => {
-  //   aboutPageRepository = new AboutPageRepository()
+  //   aboutPageRepository = AboutPageRepository.create()
   // })
 
   it("constructor without id", () => {
@@ -15,7 +15,7 @@ describe("Test About Page Test", () => {
       title: "title",
       description: "description",
     };
-    let aboutPage = new AboutPage(aboutPageData);
+    let aboutPage = AboutPage.create(aboutPageData);
     expect(aboutPage.props).toStrictEqual({
       ...aboutPageData,
       skills: [],
@@ -30,7 +30,7 @@ describe("Test About Page Test", () => {
       ],
       image: { src: "src test", alt: "alt test" },
     };
-    aboutPage = new AboutPage(aboutPageData);
+    aboutPage = AboutPage.create(aboutPageData);
     expect(aboutPage.props).toStrictEqual(aboutPageData);
 
     expect(aboutPage.id).toBeDefined()
@@ -42,7 +42,7 @@ describe("Test About Page Test", () => {
       description: "description",
     };
     const id = randomUUID()
-    const aboutPage = new AboutPage(aboutPageData, id)
+    const aboutPage = AboutPage.create(aboutPageData, id)
 
     expect(aboutPage.id).toBe(id)
   });
@@ -52,7 +52,7 @@ describe("Test About Page Test", () => {
       title: "title",
       description: "description",
     };
-    const aboutPage = new AboutPage(aboutPageData);
+    const aboutPage = AboutPage.create(aboutPageData);
     aboutPage.updateTitle("new title");
 
     expect(aboutPage.title).toBe("new title");
@@ -63,10 +63,10 @@ describe("Test About Page Test", () => {
       title: "title",
       description: "description",
     };
-    const aboutPage = new AboutPage(aboutPageData);
+    const aboutPage = AboutPage.create(aboutPageData);
     const skills = [{ name: "skill test", levelPercent: 30 }];
     aboutPage.updateSkills(skills);
-    
+
     expect(aboutPage.skills).toHaveLength(1)
     expect(aboutPage.skills).toStrictEqual(skills);
   });
@@ -76,7 +76,7 @@ describe("Test About Page Test", () => {
       title: "title",
       description: "description",
     };
-    const aboutPage = new AboutPage(aboutPageData);
+    const aboutPage = AboutPage.create(aboutPageData);
     const image = { src: "src update test", alt: "alt update test" };
     aboutPage.updateImage(image);
 
@@ -88,7 +88,7 @@ describe("Test About Page Test", () => {
       title: "title",
       description: "description",
     };
-    const aboutPage = new AboutPage(aboutPageData);
+    const aboutPage = AboutPage.create(aboutPageData);
     aboutPage.updateDescription("new description");
 
     expect(aboutPage.description).toBe("new description");
@@ -105,7 +105,7 @@ describe("Test About Page Test", () => {
   //     },
   //   };
 
-  //   const aboutPage = new AboutPage(aboutPageData);
+  //   const aboutPage = AboutPage.create(aboutPageData);
 
   //   expect(aboutPage.skills).toEqual([]);
   // });
