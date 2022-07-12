@@ -9,6 +9,7 @@
   "main": "index.js",
   "license": "CC0-1.0",
   "scripts": {
+    "typecheck": "tsc --project tsconfig.json --noEmit",
     "test": "jest",
     "express": "ts-node src/infra/http/express/index.ts",
     "test:watch": "jest --watch",
