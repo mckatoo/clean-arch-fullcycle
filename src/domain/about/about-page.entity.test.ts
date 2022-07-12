@@ -10,6 +10,12 @@ describe("Test About Page Test", () => {
   //   aboutPageRepository = AboutPageRepository.create()
   // })
 
+  it('should return error on instance without props', () => {
+    const aboutPageError = () => AboutPage.create();
+
+    expect(aboutPageError).toThrow("Props required on contructor")
+  });
+
   it("constructor without id", () => {
     let aboutPageData: AboutPageProps = {
       title: "title",
