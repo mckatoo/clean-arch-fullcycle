@@ -9,11 +9,11 @@ describe("Create About Page use-case Test", () => {
       title: "title",
       description: "description",
     };
-    expect(repository.items).toHaveLength(0);
+    expect(await repository.count()).toBe(0);
 
     const output = await createUseCase.execute(data);
     expect(output).toStrictEqual({
-      id: repository.items[0].id,
+      id: (await repository.get()).id,
       ...data,
       image: {
         src: "",
@@ -21,6 +21,6 @@ describe("Create About Page use-case Test", () => {
       },
       skills: [],
     });
-    expect(repository.items).toHaveLength(1);
+    expect(await repository.count()).toBe(1);
   });
 });

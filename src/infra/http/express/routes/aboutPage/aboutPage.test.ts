@@ -2,13 +2,7 @@ import app from "../../app";
 import request from "supertest";
 import { randomUUID } from "crypto";
 
-describe('Express Test', () => {
-  it('should index ok', async () => {
-    const response = await request(app).get("/").send()
-
-    expect(response.status).toBe(200)
-  });
-
+describe('About Page Data', () => {
   it('should create about page without id', async () => {
     const response = await request(app).post("/about").send({
       title: "title",

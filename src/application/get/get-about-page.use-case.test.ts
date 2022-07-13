@@ -15,6 +15,8 @@ describe("Get About Page use-case Test", () => {
     const input = await createUseCase.execute(data);
     const output = await getUseCase.execute();
     expect(output).toStrictEqual(input);
-    expect(repository.items).toHaveLength(1);
+    const aboutPageData = await repository.get();
+    expect(aboutPageData).toHaveProperty('title', 'title');
+    expect(aboutPageData).toHaveProperty('description', 'description');
   });
 });

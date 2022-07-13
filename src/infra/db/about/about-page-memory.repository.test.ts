@@ -9,11 +9,12 @@ describe("AboutPageMemory Repository", () => {
       description: "description",
     };
     const aboutPage = AboutPage.create(aboutPageData);
-    expect(repository.items).toHaveLength(0);
+    const beforeInsert = await repository.get();
+    expect(beforeInsert).toBeUndefined();
 
     await repository.insert(aboutPage);
-    expect(repository.items).toHaveLength(1);
-    expect(repository.items).toStrictEqual([aboutPage]);
+    const afterInsert = await repository.get()
+    expect(afterInsert).toStrictEqual(aboutPage);
   });
 
   it('should get the about page data', async () => {
@@ -26,8 +27,6 @@ describe("AboutPageMemory Repository", () => {
 
     await repository.insert(aboutPage);
     const newAboutPage = await repository.get()
-
-    expect(repository.items).toHaveLength(1);
-    expect(repository.items).toStrictEqual([newAboutPage]);
+    expect(newAboutPage).toStrictEqual(aboutPage);
   });
 });
