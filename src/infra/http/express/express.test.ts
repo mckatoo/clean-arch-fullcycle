@@ -8,14 +8,4 @@ describe('Express Test', () => {
 
     expect(response.status).toBe(200)
   });
-  
-  it('should create about page', async() => {
-    const response = await request(app).post("/about").send({
-      title: "title",
-      description: "description",
-    })
-  
-    expect(response.status).toBe(201)
-    
-  });
 });

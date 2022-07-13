@@ -24,4 +24,15 @@ describe('About Page Data', () => {
     expect(response.status).toBe(201)
     expect(response.body).toHaveProperty("id", id)
   });
+
+  it('should get about page data', async () => {
+    const aboutPageData = await request(app).post("/about").send({
+      title: "title",
+      description: "description",
+    })
+    const response = await request(app).get("/about").send()
+
+    expect(response.status).toBe(200);
+    expect(response.body).toBe(aboutPageData.body);
+  });
 });
