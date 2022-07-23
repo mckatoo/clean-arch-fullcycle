@@ -9,7 +9,7 @@ export class AboutPageMemoryRepository implements AboutPageRepositoryInterface {
   }
 
   async insert(aboutPage: AboutPage): Promise<void> {
-    this.items.push(aboutPage);
+    this.items = [aboutPage]
   }
 
   count(): Promise<number> {

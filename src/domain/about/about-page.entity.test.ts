@@ -1,14 +1,7 @@
 import { randomUUID } from "crypto";
 import { AboutPage, AboutPageProps } from "./about-page.entity";
-// import { AboutPageRepositoryInterface } from "./about-page.repository";
 
 describe("Test About Page Test", () => {
-
-  // let aboutPageRepository: AboutPageRepositoryInterface
-
-  // beforeEach(() => {
-  //   aboutPageRepository = AboutPageRepository.create()
-  // })
 
   it('should return error on instance without props', () => {
     const aboutPageError = () => AboutPage.create();

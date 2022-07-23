@@ -5,7 +5,7 @@ export class MenuMemoryRepository implements MenuRepositoryInterface {
   private items: Menu[] = [];
 
   async insert(menu: Menu): Promise<void> {
-    this.items.push(menu);
+    this.items = [...this.items, menu]
   }
 
   async getAll(): Promise<Menu[]> {

@@ -47,7 +47,7 @@ menu.post("/menu", (req: Request, res: Response) => {
 
   const links = (menu === 'public') ? publicLinks : adminLinks
 
-  res.json({ social, links })
+  res.status(201).json({ social, links })
 })
 
 export default menu

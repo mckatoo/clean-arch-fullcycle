@@ -21,12 +21,18 @@ describe("Menu in Memory Repository", () => {
 
   it("should get a menu", async () => {
     const menuData: MenuProps = {
-      label: "label to link",
-      to: "url"
+      label: "new label to link",
+      to: "new url"
     }
     const menu = new Menu(menuData);
-    await repository.insert(menu);
+    const menuBeforeInsert = await repository.getAll()
 
-    expect(await repository.getAll()).toStrictEqual([menu]);
+    await repository.insert(menu);
+    const menuAfterInsert = await repository.getAll()
+
+    expect(menuAfterInsert).toStrictEqual([
+      ...menuBeforeInsert,
+      menu
+    ]);
   })
 });

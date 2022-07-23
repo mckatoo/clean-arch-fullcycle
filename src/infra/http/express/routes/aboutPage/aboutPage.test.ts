@@ -2,7 +2,7 @@ import app from "../../app";
 import request from "supertest";
 import { randomUUID } from "crypto";
 
-describe('About Page Data', () => {
+describe('Express - About Page', () => {
   it('should create about page without id', async () => {
     const response = await request(app).post("/about").send({
       title: "title",
@@ -33,6 +33,6 @@ describe('About Page Data', () => {
     const response = await request(app).get("/about").send()
 
     expect(response.status).toBe(200);
-    expect(response.body).toBe(aboutPageData.body);
+    expect(response.body).toStrictEqual(aboutPageData.body);
   });
 });
