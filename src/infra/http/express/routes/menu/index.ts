@@ -1,8 +1,10 @@
 import { Router, Request, Response } from "express"
 
-const menu = Router();
+const menuRoute = Router();
 
-menu.get("/menu/:title", (req: Request, res: Response) => {
+// const menuPageRepository = new MenuPageRepository();
+
+menuRoute.get("/menu/:title", (req: Request, res: Response) => {
   const { title } = req.params
   const menuItems = [
     { menu_item_id: 1, menu_id: 1, label: "Sobre", to: "app/about" },
@@ -61,7 +63,7 @@ menu.get("/menu/:title", (req: Request, res: Response) => {
   res.json({ links: itemsFromMenu, social: socialLinksFromUser })
 })
 
-menu.post("/menu", (req: Request, res: Response) => {
+menuRoute.post("/menu", (req: Request, res: Response) => {
   const { menu } = req.body
   const publicLinks = [
     { label: "Sobre", to: "app/about" },
@@ -85,4 +87,4 @@ menu.post("/menu", (req: Request, res: Response) => {
   res.status(201).json({ social, links })
 })
 
-export default menu
+export default menuRoute

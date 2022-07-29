@@ -1,12 +1,13 @@
-import { Router } from 'express'
-import { CreateAboutPageUseCase } from '../../../../../application/create/create-about-page.use-case';
-import { AboutPageMemoryRepository } from '../../../../db/about/about-page-memory.repository';
 import { Request, Response } from "express";
-import { GetAboutPageUseCase } from '../../../../../application/get/get-about-page.use-case';
+import { Router } from 'express'
+
+import { AboutPageRepository } from '../../../../db/about';
+import { CreateAboutPageUseCase } from "../../../../../application/about-page/create/create-about-page.use-case";
+import { GetAboutPageUseCase } from "../../../../../application/about-page/get/get-about-page.use-case";
 
 const aboutPageRoute = Router()
 
-const aboutPageRepository = new AboutPageMemoryRepository();
+const aboutPageRepository = new AboutPageRepository();
 
 aboutPageRoute.post("/about", async (req: Request, res: Response) => {
   const createUseCase = new CreateAboutPageUseCase(aboutPageRepository);

@@ -1,10 +1,10 @@
 import { Router } from "express"
 import aboutPageRoute from "./aboutPage"
-import menu from "./menu"
+import menuRoute from "./menu"
 
 const routes = Router()
 
 routes.use(aboutPageRoute)
-routes.use(menu)
+routes.use(menuRoute)
 
 export default routes 

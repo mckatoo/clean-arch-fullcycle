@@ -1,4 +1,4 @@
-import { AboutPageMemoryRepository } from "../../infra/db/about/about-page-memory.repository";
+import { AboutPageMemoryRepository } from "../../../infra/db/about/inMemory/about-page-memory.repository";
 import { CreateAboutPageUseCase } from "../create/create-about-page.use-case";
 import { GetAboutPageUseCase } from "./get-about-page.use-case";
 

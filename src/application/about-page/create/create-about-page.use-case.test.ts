@@ -1,9 +1,9 @@
-import { AboutPageMemoryRepository } from "../../infra/db/about/about-page-memory.repository";
+import { AboutPageRepository } from "../../../infra/db/about";
 import { CreateAboutPageUseCase } from "./create-about-page.use-case";
 
 describe("Create About Page use-case Test", () => {
   it("should create a new about page", async () => {
-    const repository = new AboutPageMemoryRepository();
+    const repository = new AboutPageRepository();
     const createUseCase = new CreateAboutPageUseCase(repository);
     const data = {
       title: "title",
