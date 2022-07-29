@@ -23,6 +23,10 @@
     "@types/jest": "28.1.2",
     "@types/node": "18.0.0",
     "@types/supertest": "2.0.12",
+    "import-sort-cli": "6.0.0",
+    "import-sort-parser-babylon": "6.0.0",
+    "import-sort-parser-typescript": "6.0.0",
+    "import-sort-style-renke": "6.0.0",
     "jest": "28.1.1",
     "supertest": "6.2.3",
     "ts-node": "10.8.1",
@@ -30,5 +34,15 @@
   },
   "dependencies": {
     "express": "4.18.1"
+  },
+  "importSort": {
+    ".js, .jsx, .es6, .es": {
+      "parser": "babylon",
+      "style": "renke"
+    },
+    ".ts, .tsx": {
+      "parser": "typescript",
+      "style": "renke"
+    }
   }
 }
