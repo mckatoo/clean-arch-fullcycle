@@ -1,4 +1,4 @@
-import { Menu, MenuProps } from "../../../domain/menu/menu.entity";
+import { Menu, MenuProps } from "../../../../domain/menu/menu.entity";
 import { MenuMemoryRepository } from "./menu-memory.repository";
 
 describe("Menu in Memory Repository", () => {

@@ -1,5 +1,5 @@
-import { Menu } from "../../../domain/menu/menu.entity";
-import { MenuRepositoryInterface } from "../../../domain/menu/menu.repository";
+import { Menu } from "../../../../domain/menu/menu.entity";
+import { MenuRepositoryInterface } from "../../../../domain/menu/menu.repository";
 
 export class MenuMemoryRepository implements MenuRepositoryInterface {
   private items: Menu[] = [];
