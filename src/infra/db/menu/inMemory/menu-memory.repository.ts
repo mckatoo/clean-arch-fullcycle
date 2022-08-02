@@ -11,4 +11,8 @@ export class MenuMemoryRepository implements MenuRepositoryInterface {
   async getAll(): Promise<Menu[]> {
     return this.items;
   }
+
+  count(): Promise<number> {
+    return Promise.resolve(this.items.length);
+  }
 }

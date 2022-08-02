@@ -3,12 +3,6 @@ import { Menu, MenuProps } from "./menu.entity";
 
 describe("Test Menu Test", () => {
 
-  // let menuRepository: MenuRepositoryInterface
-
-  // beforeEach(() => {
-  //   menuRepository = new menuRepository()
-  // })
-
   it("constructor without id", () => {
     let menuData: MenuProps = {
       label: "test label",

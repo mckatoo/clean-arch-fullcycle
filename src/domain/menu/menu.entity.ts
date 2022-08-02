@@ -11,11 +11,18 @@ export class Menu {
 
   constructor(props: MenuProps, id?: string) {
     this.id = id || randomUUID()
+
+    if (!props) throw new Error('Props required on contructor')
+
     this.props = {
       ...props,
       label: props.label || "",
       to: props.to || "",
     };
+  }
+
+  static create(props: MenuProps, id?: string) {
+    return new Menu(props, id)
   }
 
   updateLabel(label: string) {
