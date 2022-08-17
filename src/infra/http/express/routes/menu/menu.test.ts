@@ -1,6 +1,6 @@
 import request from "supertest";
 
-import app from "../../app";
+import app from "@infra/http/express/app";
 import { mockedPublicMenu } from "./mock";
 
 describe('Menu', () => {

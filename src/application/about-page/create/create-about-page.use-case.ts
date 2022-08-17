@@ -1,5 +1,5 @@
-import { SkillProps, ImageProps, AboutPage } from "../../../domain/about/about-page.entity";
-import { AboutPageRepositoryInterface } from "../../../domain/about/about-page.repository";
+import { SkillProps, ImageProps, AboutPage } from "@domain/about/about-page.entity";
+import { AboutPageRepositoryInterface } from "@domain/about/about-page.repository";
 
 type CreateAboutPageInput = {
   title: string;

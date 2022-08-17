@@ -1,4 +1,4 @@
-import { AboutPageRepository } from "../../../infra/db/about";
+import { AboutPageRepository } from "@infra/db/about";
 import { CreateAboutPageUseCase } from "./create-about-page.use-case";
 
 describe("Create About Page use-case Test", () => {

@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { Router } from 'express'
 
-import { AboutPageRepository } from '../../../../db/about';
-import { CreateAboutPageUseCase } from "../../../../../application/about-page/create/create-about-page.use-case";
-import { GetAboutPageUseCase } from "../../../../../application/about-page/get/get-about-page.use-case";
+import { AboutPageRepository } from "@infra/db/about";
+import { CreateAboutPageUseCase } from "@application/about-page/create/create-about-page.use-case";
+import { GetAboutPageUseCase } from "@application/about-page/get/get-about-page.use-case";
 
 const aboutPageRoute = Router()
 

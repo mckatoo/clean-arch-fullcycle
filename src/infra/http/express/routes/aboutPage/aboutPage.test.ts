@@ -1,4 +1,4 @@
-import app from "../../app";
+import app from "@infra/http/express/app";
 import request from "supertest";
 import { randomUUID } from "crypto";
 
